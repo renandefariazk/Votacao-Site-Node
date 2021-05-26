@@ -1,5 +1,6 @@
 const loginService = require('../service/login.service');
 const Usuario = require('../model/Usuario');
+const errorController = require('./errorController');
 
 const index = (req,res) =>{
     res.render('login');
@@ -7,17 +8,17 @@ const index = (req,res) =>{
 
 const login = async (req,res) =>{
     try{
-        const nome = req.body.nome;
-        const senha = req.body.senha;
+        const name = req.body.name;
+        const password = req.body.password;
         // confirir se existe no banco usando o model
-        const usuarioBanco = await Usuario.FindOne({where:{nome:nome,senha:senha}});
+        const usuarioBanco = await Usuario.FindOne({where:{name:name,password:password}});
         if(usuarioBanco){
-            loginService.criarToken(nome);
+            loginService.criarToken(name);
         } else{
-            throw new Error('UserNotFound');
+            throw new Error('User_Not_Found');
         }
     }catch(err){
-        //res.status().send() //criar um erroController        
+        errorController.registroErro(res,err.message); 
     }
 }
 

@@ -1,17 +1,21 @@
 const jswtoken = require('jsonwebtoken');
+require('dotenv').config();
 
 const verificaToken = (req,res,next) =>{
     try{
         const auth = req.headers.authorization;
         const token = auth.split('');
         if(token[0] === 'Bearer' && token.length === 2){
-            next()
+            next();
         }else{
-            throw new Error('AcessNotAuthorization');
+            throw new Error('Unauthorized');
         }
     } catch(err){
-        //verificar se isso funciona
-        //res.status().send()  criar um erroController 
+        if(err.message === 'Unauthorized'){
+            res.status(401).send('Unauthorized');
+        }else{
+            res.status(500).send('Generic_Error');
+        }
     }
 }
 
@@ -20,12 +24,16 @@ const tokenPassword = (req,res,next) =>{
         const auth = req.headers.authorization;
         const token = auth.split('');
         if(jswtoken.verify(token[0],process.env.PASSWORD_TOKEN)){
-            next()
+            next();
         } else{
-            throw new Error('AcessNotAuthorization');
+            throw new Error('Unauthorized');
         };
     } catch(err){
-        // res.status().send()  criar um erroController 
+        if(err.message){
+            res.status(401).send('Unauthorized');
+        } else{
+            res.status(500).send('Generic_Error');
+        }
     }
 }
 

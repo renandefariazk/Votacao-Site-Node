@@ -2,11 +2,11 @@ const Sequelize = require('sequelize');
 const connection = require('../database/database');
 
 const Usuario = connection.define('usuario',{
-    nome:{
+    name:{
         type: Sequelize.STRING,
         allowNull: false  
     },
-    senha:{
+    password:{
         type: Sequelize.STRING,
         allowNull:false
     } 
