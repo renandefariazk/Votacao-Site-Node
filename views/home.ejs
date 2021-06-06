@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Votacao</title>
+</head>
+<body class="bodyContent">
+    <header class="headerFlexContent">
+        <div><p>logo</p></div>
+        <div class="divFlexContent">
+            <div class="navContent">
+                <nav><img src="" alt="linkedin"></nav>
+                <nav><img src="" alt="github"></nav>
+                <nav><img src="" alt="email"></nav>
+            </div>
+            <div class="loginCadastro">
+                <!-- posso colocar isso como um modal e remover as views-->
+                <a href="../views/login.ejs" class="buttonConta">login</a>
+                <a href="../views/cadastro.ejs" class="buttonConta">cadastro</a>
+            </div>
+        </div>
+    </header>
+    <main class="mainContent">
+        <section class="votacaoContent">
+            <div class="votacao">
+                <div>Nome ou Descricao Sobre a Votacao</div>
+                <div class="numeroVotoContent">
+                    <p class="votofirst TextBoldformat">voto 1</p>
+                    <p class="votoSecond TextBoldformat">voto 2</p>
+                </div>
+                <div class="grafico">
+                    <!-- utilizar de js para aumentar o width com base no numero value -->
+                    <div class="porcentagemVoto" value=""></div>
+                </div>
+                <form action="" method="post" class="votacaoForm">
+                    <!-- talvez um submit com name="voto" -->
+                    <input type="button" voto="" class="buttonVoto TextBoldformat" value="voto1">
+                    <input type="button" voto="" class="buttonVoto TextBoldformat" value="voto2">
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="../js/home.js"></script>
+</body>
+</html>
