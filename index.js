@@ -4,6 +4,8 @@ const homeRouter = require('./route/home.route');
 const loginRouter = require('./route/login.route');
 const cadastroRouter = require('./route/cadastro.route');
 
+require('./database/index');
+
 app.set('view engine','ejs');
 app.use(express.static(__dirname + '/public'));
 
