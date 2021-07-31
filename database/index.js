@@ -13,11 +13,11 @@ try{
     Usuario.init(connection);
     Votacao.init(connection);
 
-    Assunto.associate(connection);
-    Usuario.associate(connection);
-    Votacao.associate(connection);
+    // Assunto.associate(connection);
+    // Usuario.associate(connection);
+    // Votacao.associate(connection);
 
     console.log('Banco Connectado com Sucesso')
 }catch(err){
-    console.log('Erro no Banco'+err.message);
+    console.log('Erro no Banco '+err.message);
 }

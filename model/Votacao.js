@@ -9,8 +9,8 @@ class Votacao extends Model {
         })
     }
     static associate(models){
-        this.belongsToMany(models.Assunto,{foreignKey:'userForeignKey',targetKey:'',as:'VotacaoAssunto'});
-        this.belongsToMany(models.User,{foreignKey:'userForeignKey',targetKey:'',as:'VotacaoUser'});
+        // this.belongsToMany(models.Assunto,{foreignKey:'userForeignKey',targetKey:'',as:'VotacaoAssunto'});
+        // this.belongsToMany(models.User,{foreignKey:'userForeignKey',targetKey:'',as:'VotacaoUser'});
     }
 }
 

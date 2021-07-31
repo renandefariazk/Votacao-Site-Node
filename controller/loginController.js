@@ -14,6 +14,7 @@ const login = async (req,res) =>{
         const usuarioBanco = await Usuario.FindOne({where:{name:name,password:password}});
         if(usuarioBanco){
             loginService.criarToken(name);
+            //salvar o token em um cookie
             res.redirect(''); //ainda nao tem o admin
         } else{
             throw new Error('User_Not_Found');

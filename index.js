@@ -14,4 +14,4 @@ app.use(express.json());
 
 app.use('/',homeRouter,loginRouter,cadastroRouter);
 
-app.listen('3000');
+app.listen('8000');

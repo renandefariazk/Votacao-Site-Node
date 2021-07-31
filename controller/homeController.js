@@ -19,4 +19,4 @@ const pagIndex = async (req,res) =>{
     res.status(200).send('home',assuntosPag);
 }
 
-module.exports = {index};
+module.exports = {index,pagIndex};
