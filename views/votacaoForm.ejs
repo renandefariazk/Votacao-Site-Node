@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/home.css">
+    <link rel="stylesheet" href="../public/css/votacaoForm.css">
+    <title>Votacao</title>
+</head>
+<body class="bodyContent">
+    <header class="headerFlexContent">
+        <div><p>logo</p></div>
+        <div class="divFlexContent">
+            <div class="navContent">
+                <nav><img src="" alt="linkedin"></nav>
+                <nav><img src="" alt="github"></nav>
+                <nav><img src="" alt="email"></nav>
+            </div>
+            <div class="loginCadastro">
+                <!-- posso colocar isso como um modal e remover as views-->
+                <a href="../views/login.ejs" class="buttonConta">login</a>
+                <a href="../views/cadastro.ejs" class="buttonConta">cadastro</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <form action="../route/votacao.route.js" method="post">
+                <label for="name">Pergunta para ser Votada</label>
+                <input id="name" name="name" type="text" placeholder="Gostou desse Site ?" required>
+                <input type="submit" value="Iniciar Votacao">
+            </form>
+        </section>
+    </main>
+    
+</body>
+</html>

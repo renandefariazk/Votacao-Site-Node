@@ -9,12 +9,12 @@ const connection = new Sequelize(dataConfig);
 try{
     connection
 
-    Assunto.init(connection);
     Usuario.init(connection);
+    Assunto.init(connection);
     Votacao.init(connection);
 
-    // Assunto.associate(connection);
-    // Usuario.associate(connection);
+    Usuario.associate(connection.models);
+    Assunto.associate(connection.models);
     // Votacao.associate(connection);
 
     console.log('Banco Connectado com Sucesso')

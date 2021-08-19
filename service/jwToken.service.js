@@ -6,7 +6,10 @@ const verificaToken = (req,res,next) =>{
         const auth = req.headers.authorization;
         const token = auth.split('');
         if(token[0] === 'Bearer' && token.length === 2){
-            next();
+            //agora verificar a senha secreta do token
+            if(jswtoken.verify(token[1],process.env.PASSWORD_TOKEN)){
+                next();
+            }
         }else{
             throw new Error('Unauthorized');
         }

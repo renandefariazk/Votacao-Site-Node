@@ -11,7 +11,7 @@ class Usuario extends Model {
         })
     }
     static associate(models){
-
+        this.belongsToMany(models.Assunto,{through:'votacao',foreignKey:'userForeignKey',sourceKey:'userForeignKey',as:'UsuarioAssunto'});
     }
 }
 

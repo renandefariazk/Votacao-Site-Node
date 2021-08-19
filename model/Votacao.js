@@ -8,10 +8,6 @@ class Votacao extends Model {
             sequelize:connection
         })
     }
-    static associate(models){
-        // this.belongsToMany(models.Assunto,{foreignKey:'userForeignKey',targetKey:'',as:'VotacaoAssunto'});
-        // this.belongsToMany(models.User,{foreignKey:'userForeignKey',targetKey:'',as:'VotacaoUser'});
-    }
 }
 
 module.exports = Votacao;

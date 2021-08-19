@@ -15,7 +15,7 @@ const login = async (req,res) =>{
         if(usuarioBanco){
             loginService.criarToken(name);
             //salvar o token em um cookie
-            res.redirect(''); //ainda nao tem o admin
+            res.redirect('/home'); //ver se apenas /home funciona ou tem que coloca a url completa
         } else{
             throw new Error('User_Not_Found');
         }
