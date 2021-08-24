@@ -4,4 +4,4 @@ const votacaoController = require('../controller/votacaoController');
 
 Router.post('/votacao',votacaoController.votar);
 
-module.exports = route;
+module.exports = Router;

@@ -9,6 +9,8 @@ const verificaToken = (req,res,next) =>{
             //agora verificar a senha secreta do token
             if(jswtoken.verify(token[1],process.env.PASSWORD_TOKEN)){
                 next();
+            }else{
+                throw new Error('Unauthorized');
             }
         }else{
             throw new Error('Unauthorized');
