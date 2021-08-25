@@ -10,12 +10,22 @@ const cadastro = async (req,res) =>{
     try{
         const name = req.body.name;
         const password = req.body.password;
-        const bancoUsuario = await Usuario.Find({where:{name:name,password:password}});
-        cadastroService.usuarioAlreadyExist(bancoUsuario);
-        await Usuario.Create({
-            name:name,
-            password:password
-        });
+        const bancoUsuario = await Usuario.findOne({where:{name:name,password:password}});
+        // o err nao esta funcionando aqui
+        // await cadastroService.usuarioAlreadyExist(bancoUsuario);
+        if(bancoUsuario == null){
+            await Usuario.create({
+                name:name,
+                password:password
+            });
+            res.redirect('/');
+        }
+        else{
+            // talvez seja melhor manda uma mensagem que ususario ja existe
+            res.redirect('/');
+            // melhor apenas direcionar em programa monolitico
+            // throw new Error("User_Already_Exists");
+        }
     }catch(err){
         errorController.registroErro(res,err.message);
     }
