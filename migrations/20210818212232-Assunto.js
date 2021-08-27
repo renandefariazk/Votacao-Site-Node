@@ -46,7 +46,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Assunto');
+    await queryInterface.dropTable('Assuntos');
     /**
      * Add reverting commands here.
      *

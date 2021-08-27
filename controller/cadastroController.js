@@ -22,7 +22,7 @@ const cadastro = async (req,res) =>{
         }
         else{
             // talvez seja melhor manda uma mensagem que ususario ja existe
-            res.redirect('/');
+            res.redirect('/cadastro');
             // melhor apenas direcionar em programa monolitico
             // throw new Error("User_Already_Exists");
         }

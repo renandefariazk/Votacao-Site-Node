@@ -14,9 +14,13 @@ const login = async (req,res) =>{
         const usuarioBanco = await Usuario.FindOne({where:{name:name,password:password}});
         if(usuarioBanco){
             // salvar o id da pessoa no token
-            loginService.criarToken(name);
+            loginService.criarToken(name,usuarioBanco.userForeignKey);
+            // utilizando o return
+            const token = loginService.criarToken(name,usuarioBanco.userForeignKey);
+            localStorage.setItem('authorization',token);
+
             //salvar o token em um cookie
-            res.redirect('/'); //ver se apenas /home funciona ou tem que coloca a url completa
+            res.redirect('/home'); //ver se apenas /home funciona ou tem que coloca a url completa
         } else{
             throw new Error('User_Not_Found');
         }

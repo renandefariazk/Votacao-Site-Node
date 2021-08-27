@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const verificaToken = (req,res,next) =>{
     try{
+        // localstorage.getItem('authorization');
         const auth = req.headers.authorization;
         const token = auth.split('');
         if(token[0] === 'Bearer' && token.length === 2){
@@ -24,11 +25,12 @@ const verificaToken = (req,res,next) =>{
     }
 }
 
-const tokenPassword = (req,res,next) =>{
+const tokenExist = (req,res,next) =>{
     try{
+        // localstorage.getItem('authorization');
         const auth = req.headers.authorization;
-        const token = auth.split('');
-        if(jswtoken.verify(token[0],process.env.PASSWORD_TOKEN)){
+        // verificar se token existe
+        if(auth){
             next();
         } else{
             throw new Error('Unauthorized');
@@ -42,4 +44,4 @@ const tokenPassword = (req,res,next) =>{
     }
 }
 
-module.exports = {verificaToken};
+module.exports = {verificaToken,tokenExist};
