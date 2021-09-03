@@ -2,7 +2,7 @@ const jswtoken = require('jsonwebtoken');
 
 function criarToken(nome,id){
     //jwToken.sign
-    jswtoken.sign({
+    return jswtoken.sign({
         id:id,
         nome:nome
     },process.env.PASSWORD_TOKEN, {expiresIn:'12h'})

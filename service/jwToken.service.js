@@ -3,8 +3,8 @@ require('dotenv').config();
 
 const verificaToken = (req,res,next) =>{
     try{
-        // localstorage.getItem('authorization');
-        const auth = req.headers.authorization;
+        const auth = localstorage.getItem('authorization');
+        // const auth = req.headers.authorization;
         const token = auth.split('');
         if(token[0] === 'Bearer' && token.length === 2){
             //agora verificar a senha secreta do token
@@ -27,8 +27,8 @@ const verificaToken = (req,res,next) =>{
 
 const tokenExist = (req,res,next) =>{
     try{
-        // localstorage.getItem('authorization');
-        const auth = req.headers.authorization;
+        const auth = localstorage.getItem('authorization');
+        // const auth = req.headers.authorization;
         // verificar se token existe
         if(auth){
             next();

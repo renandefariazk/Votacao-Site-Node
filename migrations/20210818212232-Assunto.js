@@ -20,11 +20,13 @@ module.exports = {
       },
       votos1:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:false,
+        defaultValue: 0
       },
       voto2:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:false,
+        defaultValue: 0
       },
       idUserArray:{
         type:Sequelize.STRING,

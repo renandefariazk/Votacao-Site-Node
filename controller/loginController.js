@@ -11,10 +11,10 @@ const login = async (req,res) =>{
         const name = req.body.name;
         const password = req.body.password;
         // confirir se existe no banco usando o model
-        const usuarioBanco = await Usuario.FindOne({where:{name:name,password:password}});
+        const usuarioBanco = await Usuario.findOne({where:{name:name,password:password}});
         if(usuarioBanco){
             // salvar o id da pessoa no token
-            loginService.criarToken(name,usuarioBanco.userForeignKey);
+            // loginService.criarToken(name,usuarioBanco.userForeignKey);
             // utilizando o return
             const token = loginService.criarToken(name,usuarioBanco.userForeignKey);
             localStorage.setItem('authorization',token);
