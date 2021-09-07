@@ -25,22 +25,26 @@
     </header>
     <main class="mainContent">
         <section class="votacaoContent">
+            <% assuntosPag.forEach((element)=>{ %>
             <div class="votacao">
-                <div>Nome ou Descricao Sobre a Votacao</div>
+                <div>Nome ou Descricao Sobre a Votacao <%= element.nome %></div>
                 <div class="numeroVotoContent">
                     <p class="votofirst TextBoldformat">voto 1</p>
                     <p class="votoSecond TextBoldformat">voto 2</p>
                 </div>
                 <div class="grafico">
                     <!-- utilizar de js para aumentar o width com base no numero value -->
-                    <div class="porcentagemVoto" value=""></div>
+                    <div class="porcentagemVoto" data-tamanho=<%= ( element.votos1 * 100) / (element.votos1 + element.votos2) %>></div>
                 </div>
-                <form action="" method="post" class="votacaoForm">
+                <form action="votacao" method="post" class="votacaoForm">
                     <!-- talvez um submit com name="voto" -->
-                    <input type="button" voto="" class="buttonVoto TextBoldformat" value="voto1">
-                    <input type="button" voto="" class="buttonVoto TextBoldformat" value="voto2">
+                    <input type="hidden" name="id" value= <%= element.id %> >
+                    <input type="button" name="voto" class="buttonVoto TextBoldformat" value="voto1">
+                    <input type="button" name="voto" class="buttonVoto TextBoldformat" value="voto2">
+                    <!-- colocar em voto porcentagem o numero que tem no banco -->
                 </form>
             </div>
+            <% }) %>
         </section>
     </main>
     <footer>

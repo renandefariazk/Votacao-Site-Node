@@ -23,7 +23,7 @@ module.exports = {
         allowNull:false,
         defaultValue: 0
       },
-      voto2:{
+      votos2:{
         type:Sequelize.INTEGER,
         allowNull:false,
         defaultValue: 0

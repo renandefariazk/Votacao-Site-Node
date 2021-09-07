@@ -108,6 +108,7 @@
 .porcentagemVoto{
     height: 100%;
     background-color: #00008b;
+    z-index: 100;
 }
 .votacaoForm{
     display: flex;

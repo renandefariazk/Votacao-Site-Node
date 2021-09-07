@@ -1,18 +1,14 @@
 const jswtoken = require('jsonwebtoken');
 require('dotenv').config();
+const {LocalStorage} = require('node-localstorage');
 
 const verificaToken = (req,res,next) =>{
     try{
-        const auth = localstorage.getItem('authorization');
-        // const auth = req.headers.authorization;
-        const token = auth.split('');
-        if(token[0] === 'Bearer' && token.length === 2){
-            //agora verificar a senha secreta do token
-            if(jswtoken.verify(token[1],process.env.PASSWORD_TOKEN)){
-                next();
-            }else{
-                throw new Error('Unauthorized');
-            }
+        const localStorage = new LocalStorage('/scratch');
+        const auth = localStorage.getItem('authorization');
+        //agora verificar a senha secreta do token
+        if(jswtoken.verify(auth,process.env.PASSWORD_TOKEN)){
+            next();
         }else{
             throw new Error('Unauthorized');
         }
@@ -27,8 +23,8 @@ const verificaToken = (req,res,next) =>{
 
 const tokenExist = (req,res,next) =>{
     try{
-        const auth = localstorage.getItem('authorization');
-        // const auth = req.headers.authorization;
+        const localStorage = new LocalStorage('/scratch');
+        const auth = localStorage.getItem('authorization');
         // verificar se token existe
         if(auth){
             next();

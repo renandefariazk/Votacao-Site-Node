@@ -1,6 +1,7 @@
 const loginService = require('../service/login.service');
 const Usuario = require('../model/Usuario');
 const errorController = require('./errorController');
+const {LocalStorage} = require('node-localstorage');
 
 const index = (req,res) =>{
     res.render('login');
@@ -16,6 +17,9 @@ const login = async (req,res) =>{
             // salvar o id da pessoa no token
             // loginService.criarToken(name,usuarioBanco.userForeignKey);
             // utilizando o return
+            const localStorage = new LocalStorage('/scratch');
+            localStorage.removeItem('authorization');
+            //localStorage.clear();
             const token = loginService.criarToken(name,usuarioBanco.userForeignKey);
             localStorage.setItem('authorization',token);
 
